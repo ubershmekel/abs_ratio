@@ -3,15 +3,15 @@ Just some tests with absolute ratio
 """
 import math
 
-def abs_ratio(x):
-    if x < 1:
-        return 1.0 / x
+def abs_ratio(a, b):
+    if a > b:
+        return a / b
     else:
-        return x
+        return b / a
 
 def is_harmony(f1, f2):
     # force floats with 1.0
-    rat = abs_ratio(f1 * 1.0 / f2)
+    rat = abs_ratio(f1 * 1.0, f2)
     if float_equals(rat, int(rat)):
         return True
     else:
@@ -26,7 +26,7 @@ test_values = [0.05, 0.1, 0.3, 0.9, 1.0, 1.1, 3.0, 10.0]
 
 for i in test_values:
     x = abs(math.log(i))
-    y = math.log(abs_ratio(i))
+    y = math.log(abs_ratio(1.0, i))
     print i, abs_ratio(i), x, y
     assert float_equals(x, y)
 
