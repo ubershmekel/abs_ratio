@@ -22,16 +22,20 @@ def is_harmony(f1, f2):
 def float_equals(a, b):
     return abs(a - b) < 0.00001
 
-test_values = [0.05, 0.1, 0.3, 0.9, 1.0, 1.1, 3.0, 10.0]
+def test():
+    test_values = [0.05, 0.1, 0.3, 0.9, 1.0, 1.1, 3.0, 10.0]
+    
+    for i in test_values:
+        x = abs(math.log(i))
+        y = math.log(abs_ratio(1.0, i))
+        print i, abs_ratio(i), x, y
+        assert float_equals(x, y)
+    
+    
+    print 'harmonies'
+    print is_harmony(100, 50)
+    print is_harmony(100, 20)
+    print is_harmony(100, 30)
 
-for i in test_values:
-    x = abs(math.log(i))
-    y = math.log(abs_ratio(1.0, i))
-    print i, abs_ratio(i), x, y
-    assert float_equals(x, y)
-
-
-print 'harmonies'
-print is_harmony(100, 50)
-print is_harmony(100, 20)
-print is_harmony(100, 30)
+if __name__ == "__main__":
+    test()
